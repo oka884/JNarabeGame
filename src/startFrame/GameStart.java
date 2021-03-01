@@ -13,12 +13,24 @@ import src.gameFrame.*;
 public class GameStart implements ActionListener {
 
   /**
-   * コンストラクタ
+   * このActionListenerのボタンがあるフレームをフィールドに持たせる
    */
   private JFrame startFrame;
 
+  /**
+   * コンストラクタ
+   */
   public GameStart( JFrame frame ){
     this.startFrame = frame;
+  }
+
+  /**
+   * セッター
+   * 
+   * @param startFrame
+   */
+  private public void setStartFrame( JFrame startFrame ) {
+    this.startFrame = startFrame;
   }
 
   /**

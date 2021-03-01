@@ -15,18 +15,18 @@ import javax.swing.UIManager;
 /**
  *
  */
-public class StartFrame extends JFrame {
-  
+abstract public class StartFrame extends JFrame {
+
   /**
    *
    */
   public StartFrame() {
 
-    // システムの持つLAFにする
+    // look&feelをシステムの持つものにする
     setLAF();
 
-    // 基礎
-    setTitle("n目ならべ");
+    // 基礎部分
+    setTitle("");
     setSize( 600, 400 );
     setLocationByPlatform( true );
     setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -35,26 +35,26 @@ public class StartFrame extends JFrame {
     JLabel title = new JLabel( "n目並べ" );
     title.setHorizontalAlignment( JLabel.CENTER );
 
-    // もく数
-    JLabel labelVictoryConditions = new JLabel( "なんもくならべ？" );
-    JComboBox comboBoxVictoryConditions = new JComboBox();
+    // // もく数
+    // JLabel labelVictoryConditions = new JLabel( "なんもくならべ？" );
+    // JComboBox comboBoxVictoryConditions = new JComboBox();
 
-    // マス数
-    JLabel labelRowsAndColums = new JLabel( "なんます？" );
-    JComboBox comboBoxRowsAndColumns = new JComboBox();
+    // // マス数
+    // JLabel labelRowsAndColums = new JLabel( "なんます？" );
+    // JComboBox comboBoxRowsAndColumns = new JComboBox();
 
     // gamesetting入力パネル
-    JPanel panelInputSetting = new JPanel();
-    panelInputSetting.setLayout(new BoxLayout(panelInputSetting, BoxLayout.PAGE_AXIS));
+    JPanel panelSettingInput = new PanelSettingInput();
 
-    panelInputSetting.add( labelVictoryConditions );
-    panelInputSetting.add( comboBoxVictoryConditions );
-    panelInputSetting.add( labelRowsAndColums );
-    panelInputSetting.add( comboBoxRowsAndColumns );
+    // panelInputSetting.setLayout(new BoxLayout(panelInputSetting, BoxLayout.PAGE_AXIS));
+
+    // panelInputSetting.add( labelVictoryConditions );
+    // panelInputSetting.add( comboBoxVictoryConditions );
+    // panelInputSetting.add( labelRowsAndColums );
+    // panelInputSetting.add( comboBoxRowsAndColumns );
 
     // GameStartボタン
-    JButton buttonGameStart = new JButton( "GameStart" );
-    buttonGameStart.addActionListener( new GameStart( this ) );
+    GameStartButton buttonGameStart = new ButtonGameStart();
 
     // wrapパネル
     JPanel wrapPanel = new JPanel();
@@ -62,16 +62,16 @@ public class StartFrame extends JFrame {
     wrapPanel.setLayout( layout );
 
     wrapPanel.add( title );
-    wrapPanel.add( panelInputSetting );
+    wrapPanel.add( panelSettingInput );
     wrapPanel.add( buttonGameStart );
 
     layout.putConstraint( SpringLayout.NORTH, title, 30, SpringLayout.NORTH, wrapPanel );
     layout.putConstraint( SpringLayout.WEST, title, 250, SpringLayout.WEST, wrapPanel );
     layout.putConstraint( SpringLayout.EAST, title, -250, SpringLayout.EAST, wrapPanel );
 
-    layout.putConstraint( SpringLayout.NORTH, panelInputSetting, 30, SpringLayout.SOUTH, title );
-    layout.putConstraint( SpringLayout.WEST, panelInputSetting, 250, SpringLayout.WEST, wrapPanel );
-    layout.putConstraint( SpringLayout.EAST, panelInputSetting, -250, SpringLayout.EAST, wrapPanel );
+    layout.putConstraint( SpringLayout.NORTH, panelSettingInput, 30, SpringLayout.SOUTH, title );
+    layout.putConstraint( SpringLayout.WEST, panelSettingInput, 250, SpringLayout.WEST, wrapPanel );
+    layout.putConstraint( SpringLayout.EAST, panelSettingInput, -250, SpringLayout.EAST, wrapPanel );
 
     layout.putConstraint( SpringLayout.SOUTH, buttonGameStart, -30, SpringLayout.SOUTH, wrapPanel );
     layout.putConstraint(SpringLayout.WEST, buttonGameStart, 250, SpringLayout.WEST, wrapPanel );
@@ -81,7 +81,9 @@ public class StartFrame extends JFrame {
     contentPane.add( wrapPanel, BorderLayout.CENTER);
   }
 
-  // システムの持つLAFにする
+  /**
+   * look&feelをシステムの持つものにする
+   */
   void setLAF() {
 		try {
 			System.out.println( UIManager.getSystemLookAndFeelClassName() );
@@ -90,5 +92,14 @@ public class StartFrame extends JFrame {
 			e.printStackTrace();
 		}
 	}
+
+  abstract public class PanelSettingInput extends JPanel{
+    // abstract public PanelSettingInput();
+  };
+
+  abstract public class ButtonGameStart extends GameStartButton{
+    // abstract public ButtonGameStart();
+  };
+
 
 }
