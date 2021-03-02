@@ -12,12 +12,12 @@ import src.gameFrame.*;
  * 
  * 
  */
-abstract public class GameStartButton extends JButton implements ActionListener{
+public class GameStartButton extends JButton implements ActionListener{
 
   /**
    * このボタンの親であるフレームをフィールドに持たせる
    */
-  private JFrame startFrame;
+  JFrame startFrame = null;
 
   /**
    * コンストラクタ
@@ -47,6 +47,38 @@ abstract public class GameStartButton extends JButton implements ActionListener{
   }
 
   /**
+   * コンストラクタ
+   * 
+   * 引数に与えられたframeはボタン押下に不可視にされます。
+   * 
+   * @param startFrame
+   */
+  public GameStartButton( String text ){
+    super( text );
+    addActionListener( this );
+  }
+
+  /**
+   * コンストラクタ
+   * 
+   * 引数に与えられたframeはボタン押下に不可視にされます。
+   * 
+   * @param startFrame
+   */
+  public GameStartButton(){
+    super();
+    addActionListener( this );
+  }
+
+  /**
+   * セッター
+   * @param fram
+   */
+  public void setStartFrame(JFrame sf) {
+    this.startFrame = sf;
+  }
+
+  /**
    * ゲームスタートボタン押下
    * 
    */
@@ -63,6 +95,6 @@ abstract public class GameStartButton extends JButton implements ActionListener{
   /**
    * ゲーム画面へ推移のための抽象メソッド
    */
-  abstract public void createGameFrame();
+  public void createGameFrame(){};
 
 }
