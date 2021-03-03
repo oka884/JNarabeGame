@@ -21,8 +21,8 @@ import javax.swing.UIManager;
 abstract public class StartFrame extends JFrame {
 
   JPanel topPanel;
-  JPanel middlePanel;
-  JPanel bottomPanel;
+  JPanel middlePanel = new JPanel();
+  JPanel bottomPanel = new JPanel();
   GameStartButton buttonGameStart;
 
   /**
@@ -40,15 +40,16 @@ abstract public class StartFrame extends JFrame {
     setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
     // topPanel
-    createTopPanel();
+    JLabel title = new JLabel( "タイトル" );
+    title.setHorizontalAlignment( JLabel.CENTER );
+    this.topPanel = new JPanel();
+    this.topPanel.add( title );
     
 
     // middlePanel
-    createMiddlePanel();
 
 
     // bottomPanel
-    createBottomPanel();
 
 
     // 3つのパネルをレイアウトするwrapパネルの作成と、最後にそれをコンテントペインに格納する
@@ -72,24 +73,30 @@ abstract public class StartFrame extends JFrame {
    * セッター
    * @param panel
    */
-  public void setTopPanel( JPanel panel ){
+  public void addTopPanel( JPanel panel ){
+    getContentPane().removeAll();
     this.topPanel = panel;
+    this.createWrapPanel();
   }
 
   /**
    * セッター
    * @param panel
    */
-  public void setMiddlePanel( JPanel panel ){
+  public void addMiddlePanel( JPanel panel ){
+    getContentPane().removeAll();
     this.middlePanel = panel;
+    this.createWrapPanel();
   }
 
   /**
    * セッター
    * @param panel
    */
-  public void setBottomPanel( JPanel panel ){
+  public void addBottomPanel( JPanel panel ){
+    getContentPane().removeAll();
     this.bottomPanel = panel;
+    this.createWrapPanel();
   }
 
   /**
@@ -101,33 +108,6 @@ abstract public class StartFrame extends JFrame {
     button.setStartFrame( this );
   }
 
-  ///// ここからがパネル生成メソッド
-  ///// それぞれ パネル精製後は this.top,middle,bottomPanel に格納をするように
-
-  /**
-   * topパネルのクラス。オーバーライドも前提としている
-   * 
-   */
-  public void createTopPanel(){
-
-    JLabel title = new JLabel( "タイトル" );
-    title.setHorizontalAlignment( JLabel.CENTER );
-    this.topPanel = new JPanel();
-    this.topPanel.add( title );
-  }
-
-  /**
-   * middlePanelのクラス。スタート画面で様々な操作をさせることを前提とした抽象クラス
-   * 
-   * 作ったパネルを this.middlePanel に格納するように
-   */
-  abstract public void createMiddlePanel();
-
-  /**
-   * bottomPanelのクラス。
-   * 
-   */
-  abstract public void createBottomPanel();
 
 
   /**

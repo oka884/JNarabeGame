@@ -11,19 +11,16 @@ public class NStartFrame extends StartFrame{
 
   public NStartFrame(){
     super();
-  }
 
-  @Override
-  public void createTopPanel() {
+    // topPanel //
     JLabel title = new JLabel( "nもくならべ" );
     title.setHorizontalAlignment( JLabel.CENTER );
-    this.topPanel = new JPanel();
-    this.topPanel.add( title );
-  }
+    JPanel topPanel = new JPanel();
+    topPanel.add( title );
+    addTopPanel( topPanel );
 
-  @Override
-  public void createMiddlePanel() {
     
+    // middlePanel //
     // もく数
     JLabel labelVictoryConditions = new JLabel( "なんもくならべ？" );
     JComboBox comboBoxVictoryConditions = new JComboBox();
@@ -31,7 +28,6 @@ public class NStartFrame extends StartFrame{
     // マス数
     JLabel labelRowsAndColums = new JLabel( "なんます？" );
     JComboBox comboBoxRowsAndColumns = new JComboBox();
-
 
     JPanel settingPanel = new JPanel();
 
@@ -42,18 +38,17 @@ public class NStartFrame extends StartFrame{
     settingPanel.add( labelRowsAndColums );
     settingPanel.add( comboBoxRowsAndColumns );
 
-    this.setMiddlePanel( settingPanel );
+    addMiddlePanel( settingPanel );
 
-  }
 
-  @Override
-  public void createBottomPanel() {
-
+    // bottomPanel //
     setButtonGameStart( new NGameStart() );
 
-    this.bottomPanel = new JPanel();
-    this.bottomPanel.add( this.buttonGameStart );
+    JPanel bottomPanel = new JPanel();
+    bottomPanel.add( this.buttonGameStart );
+    addBottomPanel( bottomPanel );
 
   }
+
   
 }
