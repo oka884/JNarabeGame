@@ -1,6 +1,7 @@
 package src;
 
-import src.startFrame.*;
+import littleBoardGame.view.StartFrame;
+import src.view.NStartFrame;
 
 public class Narabe {
   public static void main(String[] args){

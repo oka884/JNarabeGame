@@ -1,11 +1,15 @@
-package src.startFrame;
+package src.view;
 
 import java.awt.LayoutManager;
 
 import javax.swing.BoxLayout;
+import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+
+import littleBoardGame.view.StartFrame;
+import src.model.logic.NGameStartLogic;
 
 public class NStartFrame extends StartFrame{
 
@@ -13,23 +17,25 @@ public class NStartFrame extends StartFrame{
     super();
 
     // topPanel //
+    JPanel topPanel = new JPanel();
+
     JLabel title = new JLabel( "nもくならべ" );
     title.setHorizontalAlignment( JLabel.CENTER );
-    JPanel topPanel = new JPanel();
+    
     topPanel.add( title );
     addTopPanel( topPanel );
 
     
     // middlePanel //
-    // もく数
+    JPanel settingPanel = new JPanel();
+
+    // もく数の入力
     JLabel labelVictoryConditions = new JLabel( "なんもくならべ？" );
     JComboBox comboBoxVictoryConditions = new JComboBox();
 
-    // マス数
+    // マス数の入力
     JLabel labelRowsAndColums = new JLabel( "なんます？" );
     JComboBox comboBoxRowsAndColumns = new JComboBox();
-
-    JPanel settingPanel = new JPanel();
 
     settingPanel.setLayout((LayoutManager) new BoxLayout( settingPanel, BoxLayout.PAGE_AXIS));
 
@@ -42,13 +48,14 @@ public class NStartFrame extends StartFrame{
 
 
     // bottomPanel //
-    setButtonGameStart( new NGameStart() );
-
     JPanel bottomPanel = new JPanel();
-    bottomPanel.add( this.buttonGameStart );
+
+    JButton startButton = new JButton( "GameStart" );
+    startButton.addActionListener( new NGameStartLogic( this ) );
+
+    bottomPanel.add( startButton );
     addBottomPanel( bottomPanel );
 
   }
-
   
 }

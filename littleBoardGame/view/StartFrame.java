@@ -1,4 +1,4 @@
-package src.startFrame;
+package littleBoardGame.view;
 
 import java.awt.Container;
 import java.awt.BorderLayout;
@@ -12,6 +12,9 @@ import javax.swing.JPanel;
 import javax.swing.SpringLayout;
 import javax.swing.UIManager;
 
+import littleBoardGame.logic.GameStartLogic;
+
+
 
 /**
  * top,middle,bottom の3枚のパネルで構成されるゲームスタートフレームの抽象クラス
@@ -22,8 +25,7 @@ abstract public class StartFrame extends JFrame {
 
   JPanel topPanel;
   JPanel middlePanel = new JPanel();
-  JPanel bottomPanel = new JPanel();
-  GameStartButton buttonGameStart;
+  JPanel bottomPanel;
 
   /**
    * コンストラクタ
@@ -40,16 +42,23 @@ abstract public class StartFrame extends JFrame {
     setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
     // topPanel
+    this.topPanel = new JPanel();
+
     JLabel title = new JLabel( "タイトル" );
     title.setHorizontalAlignment( JLabel.CENTER );
-    this.topPanel = new JPanel();
+
     this.topPanel.add( title );
     
 
-    // middlePanel
+    // middlePanel (デフォルトのパネルなし)
 
 
     // bottomPanel
+    this.bottomPanel = new JPanel();
+
+    JButton startButton = new JButton( "button" );
+    startButton.addActionListener( new GameStartLogic( this ) );
+
 
 
     // 3つのパネルをレイアウトするwrapパネルの作成と、最後にそれをコンテントペインに格納する
@@ -99,19 +108,12 @@ abstract public class StartFrame extends JFrame {
     this.createWrapPanel();
   }
 
-  /**
-   * セッター
-   * @param gameStartButton
-   */
-  public void setButtonGameStart( GameStartButton button ){
-    this.buttonGameStart = button;
-    button.setStartFrame( this );
-  }
-
 
 
   /**
    * 大枠のレイアウトを決めるラップパネルを作り、レイアウトを定め、コンテントペインに格納する
+   * 
+   * 大きくレイアウトを変えるときはこのメソッドをオーバーライドする
    */
   public void createWrapPanel(){
     JPanel wrapPanel = new JPanel();

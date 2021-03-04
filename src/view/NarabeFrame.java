@@ -1,13 +1,16 @@
-package src.gameFrame;
+package src.view;
 
 import javax.swing.JFrame;
-import javax.swing.JButton;
 import javax.swing.JPanel;
+
+import littleBoardGame.logic.CloseGameBoardLogic;
+
 import java.awt.Container;
 import java.awt.BorderLayout;
 
 
 /**
+ * ゲーム画面フレームのクラス
  *
  */
 public class NarabeFrame extends JFrame {
@@ -20,11 +23,11 @@ public class NarabeFrame extends JFrame {
   public NarabeFrame( JFrame startFrame ) {
 
     setTitle("n目ならべ");
-    setBounds( 200, 200, 800, 600);
+    setBounds( 200, 200, 800, 800);
     setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     setLocationRelativeTo(null);
 
-    this.addWindowListener( new CloseBoard( startFrame ) );
+    this.addWindowListener( new CloseGameBoardLogic( startFrame ) );
 
     JPanel board = new JPanel();
 

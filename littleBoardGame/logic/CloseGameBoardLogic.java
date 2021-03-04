@@ -1,4 +1,4 @@
-package src.gameFrame;
+package littleBoardGame.logic;
 
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
@@ -11,14 +11,14 @@ import javax.swing.JFrame;
  * ゲーム画面を閉じる際のクラス
  * 
  */
-public class CloseBoard implements WindowListener {
+public class CloseGameBoardLogic implements WindowListener {
 
   /**
    * コンストラクタ
    */
   private JFrame startFrame;
 
-  public CloseBoard( JFrame frame ){
+  public CloseGameBoardLogic( JFrame frame ){
     this.startFrame = frame;
   }
 
