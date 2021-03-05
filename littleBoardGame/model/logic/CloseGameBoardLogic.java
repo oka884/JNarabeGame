@@ -1,10 +1,9 @@
-package littleBoardGame.logic;
+package littleBoardGame.model.logic;
 
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
 import javax.swing.JFrame;
-
 
 
 /**

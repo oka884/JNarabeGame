@@ -1,144 +1,61 @@
 package littleBoardGame.view;
 
-import java.awt.Container;
-import java.awt.BorderLayout;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.BoxLayout;
 import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.JComponent;
 import javax.swing.JPanel;
-import javax.swing.SpringLayout;
-import javax.swing.UIManager;
 
-import littleBoardGame.logic.GameStartLogic;
+
+import littleBoardGame.controller.Controller;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 
 
 /**
- * top,middle,bottom の3枚のパネルで構成されるゲームスタートフレームの抽象クラス
+ * GameFrameを継承したスタートフレームのクラス
  * 
  *
  */
-abstract public class StartFrame extends JFrame {
-
-  JPanel topPanel;
-  JPanel middlePanel = new JPanel();
-  JPanel bottomPanel;
+abstract public class StartFrame extends GameFrame {
 
   /**
    * コンストラクタ
    */
   public StartFrame() {
 
-    // look&feelをシステムの持つものにする
-    setLAF();
+    super();
 
-    // 基礎部分
-    setTitle("フレーム");
+    // 基礎部分の変更
+    setTitle("スタートフレーム");
     setSize( 600, 400 );
     setLocationByPlatform( true );
     setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
     // topPanel
-    this.topPanel = new JPanel();
+    JPanel tPanel = new JPanel();
 
     JLabel title = new JLabel( "タイトル" );
     title.setHorizontalAlignment( JLabel.CENTER );
 
-    this.topPanel.add( title );
-    
+    tPanel.add( title );
 
-    // middlePanel (デフォルトのパネルなし)
+    addTopPanel( tPanel );
+    
 
 
     // bottomPanel
-    this.bottomPanel = new JPanel();
+    JPanel bPanel = new JPanel();
 
     JButton startButton = new JButton( "button" );
-    startButton.addActionListener( new GameStartLogic( this ) );
+    startButton.addActionListener( this.controller.buttonPush( 1, this ) );
 
+    bPanel.add( startButton );
 
+    addBottomPanel( bPanel );
 
-    // 3つのパネルをレイアウトするwrapパネルの作成と、最後にそれをコンテントペインに格納する
-    this.createWrapPanel();
     
-  }
-
-  /**
-   * look&feelをシステムの持つものにする
-   */
-  void setLAF() {
-		try {
-			System.out.println( UIManager.getSystemLookAndFeelClassName() );
-			UIManager.setLookAndFeel( UIManager.getSystemLookAndFeelClassName() );
-		} catch ( Exception e ) {
-			e.printStackTrace();
-		}
-	}
-  
-  /**
-   * セッター
-   * @param panel
-   */
-  public void addTopPanel( JPanel panel ){
-    getContentPane().removeAll();
-    this.topPanel = panel;
-    this.createWrapPanel();
-  }
-
-  /**
-   * セッター
-   * @param panel
-   */
-  public void addMiddlePanel( JPanel panel ){
-    getContentPane().removeAll();
-    this.middlePanel = panel;
-    this.createWrapPanel();
-  }
-
-  /**
-   * セッター
-   * @param panel
-   */
-  public void addBottomPanel( JPanel panel ){
-    getContentPane().removeAll();
-    this.bottomPanel = panel;
-    this.createWrapPanel();
-  }
-
-
-
-  /**
-   * 大枠のレイアウトを決めるラップパネルを作り、レイアウトを定め、コンテントペインに格納する
-   * 
-   * 大きくレイアウトを変えるときはこのメソッドをオーバーライドする
-   */
-  public void createWrapPanel(){
-    JPanel wrapPanel = new JPanel();
-    SpringLayout layout = new SpringLayout();
-    wrapPanel.setLayout( layout );
-
-    wrapPanel.add( this.topPanel );
-    wrapPanel.add( this.middlePanel );
-    wrapPanel.add( this.bottomPanel );
-
-    layout.putConstraint( SpringLayout.NORTH, this.topPanel, 30, SpringLayout.NORTH, wrapPanel );
-    layout.putConstraint( SpringLayout.WEST, this.topPanel, 250, SpringLayout.WEST, wrapPanel );
-    layout.putConstraint( SpringLayout.EAST, this.topPanel, -250, SpringLayout.EAST, wrapPanel );
-
-    layout.putConstraint( SpringLayout.NORTH, this.middlePanel, 30, SpringLayout.SOUTH, topPanel );
-    layout.putConstraint( SpringLayout.WEST, this.middlePanel, 250, SpringLayout.WEST, wrapPanel );
-    layout.putConstraint( SpringLayout.EAST, this.middlePanel, -250, SpringLayout.EAST, wrapPanel );
-
-    layout.putConstraint( SpringLayout.SOUTH, this.bottomPanel, -30, SpringLayout.SOUTH, wrapPanel );
-    layout.putConstraint(SpringLayout.WEST, this.bottomPanel, 230, SpringLayout.WEST, wrapPanel );
-    layout.putConstraint(SpringLayout.EAST, this.bottomPanel, -230, SpringLayout.EAST, wrapPanel );
-
-    Container contentPane = getContentPane();
-    contentPane.add( wrapPanel, BorderLayout.CENTER);
-
   }
 
 }

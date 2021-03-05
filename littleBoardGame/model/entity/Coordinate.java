@@ -1,7 +1,6 @@
-package littleBoardGame.entity;
+package littleBoardGame.model.entity;
 
-import littleBoardGame.exception.CoordinateOutsideBoardException;
-
+import littleBoardGame.model.exception.CoordinateOutsideBoardException;
 
 /**
  * 座標のクラス

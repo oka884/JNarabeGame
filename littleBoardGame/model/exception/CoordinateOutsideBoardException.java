@@ -1,4 +1,4 @@
-package littleBoardGame.exception;
+package littleBoardGame.model.exception;
 
 
 public class CoordinateOutsideBoardException extends Exception {

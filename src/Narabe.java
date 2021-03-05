@@ -1,13 +1,16 @@
 package src;
 
+import littleBoardGame.controller.Controller;
 import littleBoardGame.view.StartFrame;
 import src.view.NStartFrame;
 
 public class Narabe {
   public static void main(String[] args){
     
-    StartFrame frame = new NStartFrame();
-    frame.setVisible(true);
+    Controller controller = new Controller();
+
+    controller.run();
+
 
   } 
 }

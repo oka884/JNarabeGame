@@ -1,8 +1,7 @@
-package littleBoardGame.logic;
+package littleBoardGame.model.logic;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.JFrame;
 
 import littleBoardGame.view.StartFrame;
 
@@ -55,7 +54,7 @@ public class GameStartLogic implements ActionListener{
     // 新しくウィンドウを作る
     createGameFrameAndStartGame();
 
-    // スタート画面を隠す これがやりたいこと
+    // スタート画面を隠す このクラスのメイン
     this.startFrame.setVisible( false );
   }
 

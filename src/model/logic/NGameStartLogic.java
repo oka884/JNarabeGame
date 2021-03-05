@@ -1,6 +1,6 @@
 package src.model.logic;
 
-import littleBoardGame.logic.GameStartLogic;
+import littleBoardGame.model.logic.GameStartLogic;
 import littleBoardGame.view.StartFrame;
 import src.view.NarabeFrame;
 

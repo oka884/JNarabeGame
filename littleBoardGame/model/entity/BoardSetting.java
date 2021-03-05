@@ -1,4 +1,4 @@
-package littleBoardGame.entity;
+package littleBoardGame.model.entity;
 
 
 /**
