@@ -10,14 +10,14 @@ import javax.swing.JFrame;
  * ゲーム画面を閉じる際のクラス
  * 
  */
-public class CloseGameBoardLogic implements WindowListener {
+public class CloseGameBoardListener implements WindowListener {
 
   /**
    * コンストラクタ
    */
   private JFrame startFrame;
 
-  public CloseGameBoardLogic( JFrame frame ){
+  public CloseGameBoardListener( JFrame frame ){
     this.startFrame = frame;
   }
 
