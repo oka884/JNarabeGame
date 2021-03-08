@@ -13,19 +13,14 @@ import littleBoardGame.controller.Controller;
  */
 public class PlayFrame extends GameFrame {
 
-  Controller controller = new Controller();
-  JPanel topPanel;
-  JPanel middlePanel;
-  JPanel bottomPanel;
-  
   /**
    * コンストラクタ
    * 
    * ゲーム画面のフレーム。ゲーム終了時に前の画面を可視化するために引数にstartFrameを取る
    */
-  public PlayFrame( StartFrame startFrame ) {
+  public PlayFrame( Controller c,StartFrame startFrame ) {
 
-    super();
+    super( c );
 
     // 基礎部分の変更
     setTitle("プレイフレーム");

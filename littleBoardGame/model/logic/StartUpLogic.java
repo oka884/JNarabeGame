@@ -1,14 +1,14 @@
 package littleBoardGame.model.logic;
 
+import littleBoardGame.controller.Controller;
 import littleBoardGame.view.GameFrame;
 import littleBoardGame.view.StartFrame;
 import src.view.NStartFrame;
 
-public class StartUpLogic implements LittleBoardGameLogic{
+public class StartUpLogic extends LittleBoardGameLogic{
 
-  public StartUpLogic(){
-
-    
+  public StartUpLogic( Controller c ){
+    super( c );
   }
   
   @Override

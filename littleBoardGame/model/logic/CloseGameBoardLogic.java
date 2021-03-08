@@ -2,17 +2,15 @@ package littleBoardGame.model.logic;
 
 import littleBoardGame.controller.Controller;
 import littleBoardGame.view.GameFrame;
-import littleBoardGame.view.StartFrame;
 
-public class GameStartLogic extends LittleBoardGameLogic{
+public class CloseGameBoardLogic extends LittleBoardGameLogic {
 
-  GameStartLogic( Controller c ){
+  CloseGameBoardLogic( Controller c ){
     super( c );
   }
-
   @Override
   public GameFrame returnFrame() {
-    StartFrame frame = new StartFrame();
+    // TODO Auto-generated method stub
     return null;
   }
 
@@ -21,5 +19,7 @@ public class GameStartLogic extends LittleBoardGameLogic{
     // TODO Auto-generated method stub
     return null;
   }
+
+  
   
 }

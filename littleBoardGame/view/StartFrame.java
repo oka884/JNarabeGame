@@ -23,9 +23,9 @@ abstract public class StartFrame extends GameFrame {
   /**
    * コンストラクタ
    */
-  public StartFrame() {
+  public StartFrame( Controller c ) {
 
-    super();
+    super(c);
 
     // 基礎部分の変更
     setTitle("スタートフレーム");

@@ -24,7 +24,8 @@ public class Controller {
 
 
 
-  public ActionListener buttonPush( int ID, StartFrame frame){
+  public ActionListener buttonPush( int id, StartFrame frame){
+    
     return new GameStartLogic( frame );
   }
 
@@ -33,8 +34,20 @@ public class Controller {
   }
 
   public void run(){
-    StartUpLogic startUpLogic = new StartUpLogic();
-    this.frames.put( startUpLogic.returnFrameName(), startUpLogic.returnFrame() );
+    StartUpLogic startUpLogic = new StartUpLogic( this );
+    this.frames.put( "startFrame", startUpLogic.returnFrame() );
+  }
+
+  public void buttonPush( int id ){
+
+    switch( id ){
+
+      case ListenerID.ID_BUTTON_GAMESTART:
+        GameStartLogic startLogic = new GameStartLogic( baggage ) ); 
+
+    }
+    
+
   }
   
 }

@@ -17,7 +17,7 @@ import littleBoardGame.controller.Controller;
  */
 public class GameFrame extends JFrame {
 
-  Controller controller = new Controller();
+  Controller controller;
   JPanel topPanel;
   JPanel middlePanel;
   JPanel bottomPanel;
@@ -25,7 +25,9 @@ public class GameFrame extends JFrame {
   /**
    * コンストラクタ
    */
-  public GameFrame() {
+  public GameFrame( Controller c ) {
+
+    this.controller = c;
 
     // look&feelをシステムの持つものにする
     setLAF();
