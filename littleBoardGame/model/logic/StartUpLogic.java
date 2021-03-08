@@ -1,14 +1,14 @@
 package littleBoardGame.model.logic;
 
-import littleBoardGame.controller.Controller;
+import littleBoardGame.model.entity.Baggage;
 import littleBoardGame.view.GameFrame;
 import littleBoardGame.view.StartFrame;
 import src.view.NStartFrame;
 
 public class StartUpLogic extends LittleBoardGameLogic{
 
-  public StartUpLogic( Controller c ){
-    super( c );
+  public StartUpLogic( Baggage bag ){
+    super( bag );
   }
   
   @Override

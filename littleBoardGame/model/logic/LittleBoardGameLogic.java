@@ -1,6 +1,6 @@
 package littleBoardGame.model.logic;
 
-import littleBoardGame.controller.Controller;
+import littleBoardGame.model.entity.Baggage;
 import littleBoardGame.view.GameFrame;
 
 /**
@@ -9,24 +9,24 @@ import littleBoardGame.view.GameFrame;
 public abstract class LittleBoardGameLogic {
 
   /**
-   * コントローラーをもつ
+   * MVC間のやりとりはBaggageクラスを使って行う
    */
-  Controller controller;
+  private Baggage baggage;
 
   /**
-   * コンストラクタ。引数にコントローラーをとる
-   * @param c
+   * コンストラクタ
+   * @param bag
    */
-  public LittleBoardGameLogic( Controller c ){
-    this.controller = c;
+  public LittleBoardGameLogic( Baggage bag ){
+    this.baggage = bag;
   }
 
   /**
    * ゲッター
    * @return
    */
-  public Controller getController(){
-    return this.controller;
+  public Baggage getBaggage(){
+    return this.baggage;
   }
   
   /**

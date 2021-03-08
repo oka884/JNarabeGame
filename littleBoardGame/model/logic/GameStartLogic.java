@@ -1,18 +1,20 @@
 package littleBoardGame.model.logic;
 
-import littleBoardGame.controller.Controller;
+import littleBoardGame.model.entity.Baggage;
 import littleBoardGame.view.GameFrame;
 import littleBoardGame.view.StartFrame;
 
 public class GameStartLogic extends LittleBoardGameLogic{
 
-  GameStartLogic( Controller c ){
-    super( c );
+
+  public GameStartLogic(Baggage bag) {
+    super(bag);
+    //TODO Auto-generated constructor stub
   }
 
   @Override
   public GameFrame returnFrame() {
-    StartFrame frame = new StartFrame();
+    StartFrame frame = new StartFrame( getBaggage() );
     return null;
   }
 

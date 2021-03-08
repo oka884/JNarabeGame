@@ -9,6 +9,7 @@ import javax.swing.SpringLayout;
 import javax.swing.UIManager;
 
 import littleBoardGame.controller.Controller;
+import littleBoardGame.model.entity.Baggage;
 
 /**
  * すべての基礎になるゲームフレーム
@@ -17,7 +18,7 @@ import littleBoardGame.controller.Controller;
  */
 public class GameFrame extends JFrame {
 
-  Controller controller;
+  Baggage baggage;
   JPanel topPanel;
   JPanel middlePanel;
   JPanel bottomPanel;
@@ -25,9 +26,9 @@ public class GameFrame extends JFrame {
   /**
    * コンストラクタ
    */
-  public GameFrame( Controller c ) {
+  public GameFrame( Baggage bag ) {
 
-    this.controller = c;
+    this.baggage = bag;
 
     // look&feelをシステムの持つものにする
     setLAF();
@@ -56,9 +57,18 @@ public class GameFrame extends JFrame {
   }
 
   /**
+   * ゲッター
+   */
+  public Baggage getBaggage(){
+    return this.baggage;
+  }
+
+  /**
    * look&feelをシステムの持つものにする
    */
-  void setLAF() {
+  protected void name() {
+    
+  } void setLAF() {
 		try {
 			System.out.println( UIManager.getSystemLookAndFeelClassName() );
 			UIManager.setLookAndFeel( UIManager.getSystemLookAndFeelClassName() );

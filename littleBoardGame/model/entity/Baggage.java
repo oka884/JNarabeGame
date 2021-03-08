@@ -14,11 +14,11 @@ public class Baggage {
     this.frames.put(key, value);
   }
 
-  public void setNumbers( String key, Integer value ){
+  public void setNumber( String key, Integer value ){
     this.numbers.put(key, value);
   }
 
-  public void setTexts( String key, String value ){
+  public void setText( String key, String value ){
     this.texts.put(key, value);
   }
 

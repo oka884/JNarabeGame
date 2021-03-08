@@ -7,6 +7,8 @@ import javax.swing.JPanel;
 
 
 import littleBoardGame.controller.Controller;
+import littleBoardGame.model.entity.Baggage;
+import littleBoardGame.model.logic.GameStartButtonListener;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -23,9 +25,9 @@ abstract public class StartFrame extends GameFrame {
   /**
    * コンストラクタ
    */
-  public StartFrame( Controller c ) {
+  public StartFrame( Baggage bag ) {
 
-    super(c);
+    super( bag );
 
     // 基礎部分の変更
     setTitle("スタートフレーム");
@@ -49,7 +51,7 @@ abstract public class StartFrame extends GameFrame {
     JPanel bPanel = new JPanel();
 
     JButton startButton = new JButton( "button" );
-    startButton.addActionListener( this.controller.buttonPush( 1, this ) );
+    startButton.addActionListener( new GameStartButtonListener( getBaggage().getFrame( "gameFrame" ) );
 
     bPanel.add( startButton );
 

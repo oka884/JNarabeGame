@@ -4,6 +4,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import littleBoardGame.controller.Controller;
+import littleBoardGame.model.entity.Baggage;
 
 
 
@@ -18,9 +19,9 @@ public class PlayFrame extends GameFrame {
    * 
    * ゲーム画面のフレーム。ゲーム終了時に前の画面を可視化するために引数にstartFrameを取る
    */
-  public PlayFrame( Controller c,StartFrame startFrame ) {
+  public PlayFrame( Baggage bag ) {
 
-    super( c );
+    super( bag );
 
     // 基礎部分の変更
     setTitle("プレイフレーム");

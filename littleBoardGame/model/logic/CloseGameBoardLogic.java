@@ -5,9 +5,7 @@ import littleBoardGame.view.GameFrame;
 
 public class CloseGameBoardLogic extends LittleBoardGameLogic {
 
-  CloseGameBoardLogic( Controller c ){
-    super( c );
-  }
+
   @Override
   public GameFrame returnFrame() {
     // TODO Auto-generated method stub
