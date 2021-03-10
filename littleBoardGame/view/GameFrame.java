@@ -18,7 +18,6 @@ import littleBoardGame.model.entity.Baggage;
  */
 public class GameFrame extends JFrame {
 
-  Baggage baggage;
   JPanel topPanel;
   JPanel middlePanel;
   JPanel bottomPanel;
@@ -27,8 +26,6 @@ public class GameFrame extends JFrame {
    * コンストラクタ
    */
   public GameFrame( Baggage bag ) {
-
-    this.baggage = bag;
 
     // look&feelをシステムの持つものにする
     setLAF();
@@ -56,12 +53,6 @@ public class GameFrame extends JFrame {
     
   }
 
-  /**
-   * ゲッター
-   */
-  public Baggage getBaggage(){
-    return this.baggage;
-  }
 
   /**
    * look&feelをシステムの持つものにする
